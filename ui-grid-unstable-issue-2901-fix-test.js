@@ -5623,11 +5623,11 @@ angular.module('ui.grid')
     var p2 = self.processColumnsProcessors(self.columns).then(function (renderableColumns) {
       self.setVisibleColumns(renderableColumns);
     });
+	
+	var p3 = self.refreshCanvas(true);
 
-    return $q.all([p1, p2]).then(function () {
+    return $q.all([p1, p2, p3]).then(function () {
       self.redrawInPlace(rowsAltered);
-
-      self.refreshCanvas(true);
     });
   };
 
